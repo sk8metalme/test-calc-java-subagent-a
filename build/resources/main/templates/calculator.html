@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>電卓アプリ</title>
+    <link rel="stylesheet" th:href="@{/css/calculator.css}">
+</head>
+<body>
+    <div class="container">
+        <h1>電卓アプリ</h1>
+        
+        <!-- エラーメッセージ表示 -->
+        <div th:if="${error}" class="alert alert-error" th:text="${error}"></div>
+        
+        <!-- 成功メッセージ表示 -->
+        <div th:if="${success}" class="alert alert-success" th:text="${success}"></div>
+        
+        <div class="calculator">
+            <!-- ディスプレイ -->
+            <div class="display">
+                <div class="display-value" th:text="${calculationRequest.displayValue}">0</div>
+            </div>
+            
+            <!-- ボタンエリア -->
+            <div class="buttons">
+                <!-- 1行目 -->
+                <button class="btn btn-function" onclick="handleButton('C')">C</button>
+                <button class="btn btn-function" onclick="handleButton('CE')">CE</button>
+                <button class="btn btn-function" onclick="handleButton('±')">±</button>
+                <button class="btn btn-function" onclick="handleButton('√')">√</button>
+                
+                <!-- 2行目 -->
+                <button class="btn btn-function" onclick="handleButton('x²')">x²</button>
+                <button class="btn btn-function" onclick="handleButton('%')">%</button>
+                <button class="btn btn-operator" onclick="handleButton('/')">/</button>
+                <button class="btn btn-operator" onclick="handleButton('*')">×</button>
+                
+                <!-- 3行目 -->
+                <button class="btn btn-number" onclick="handleButton('7')">7</button>
+                <button class="btn btn-number" onclick="handleButton('8')">8</button>
+                <button class="btn btn-number" onclick="handleButton('9')">9</button>
+                <button class="btn btn-operator" onclick="handleButton('-')">-</button>
+                
+                <!-- 4行目 -->
+                <button class="btn btn-number" onclick="handleButton('4')">4</button>
+                <button class="btn btn-number" onclick="handleButton('5')">5</button>
+                <button class="btn btn-number" onclick="handleButton('6')">6</button>
+                <button class="btn btn-operator" onclick="handleButton('+')">+</button>
+                
+                <!-- 5行目 -->
+                <button class="btn btn-number" onclick="handleButton('1')">1</button>
+                <button class="btn btn-number" onclick="handleButton('2')">2</button>
+                <button class="btn btn-number" onclick="handleButton('3')">3</button>
+                <button class="btn btn-equals" onclick="handleButton('=')" rowspan="2">=</button>
+                
+                <!-- 6行目 -->
+                <button class="btn btn-number btn-zero" onclick="handleButton('0')">0</button>
+                <button class="btn btn-number" onclick="handleButton('.')">.</button>
+            </div>
+        </div>
+        
+        <!-- 従来の計算フォーム（デバッグ用） -->
+        <div class="debug-section">
+            <h3>デバッグ用計算フォーム</h3>
+            <form th:action="@{/calculate}" th:object="${calculationRequest}" method="post">
+                <div class="form-group">
+                    <label for="firstNumber">最初の数値:</label>
+                    <input type="number" id="firstNumber" th:field="*{firstNumber}" step="any" placeholder="数値を入力">
+                    <span th:if="${#fields.hasErrors('firstNumber')}" th:errors="*{firstNumber}" class="error"></span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="operation">演算子:</label>
+                    <select id="operation" th:field="*{operation}">
+                        <option value="">選択してください</option>
+                        <option value="+">+ (加算)</option>
+                        <option value="-">- (減算)</option>
+                        <option value="*">× (乗算)</option>
+                        <option value="/">÷ (除算)</option>
+                    </select>
+                    <span th:if="${#fields.hasErrors('operation')}" th:errors="*{operation}" class="error"></span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="secondNumber">2番目の数値:</label>
+                    <input type="number" id="secondNumber" th:field="*{secondNumber}" step="any" placeholder="数値を入力">
+                    <span th:if="${#fields.hasErrors('secondNumber')}" th:errors="*{secondNumber}" class="error"></span>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">計算実行</button>
+            </form>
+        </div>
+    </div>
+    
+    <script th:src="@{/js/calculator.js}"></script>
+</body>
+</html>
