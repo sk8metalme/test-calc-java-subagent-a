@@ -9,10 +9,18 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
 import java.math.BigDecimal;
+import java.util.HashMap;
+import java.util.Map;
+import jakarta.servlet.http.HttpSession;
 
 @Controller
+@SessionAttributes("calculationRequest")
 public class CalculatorController {
 
     @Autowired
@@ -59,25 +67,69 @@ public class CalculatorController {
 
     @PostMapping("/button")
     public String handleButton(@RequestParam String button, 
-                             @ModelAttribute CalculationRequest request,
+                             @SessionAttribute(value = "calculationRequest", required = false) CalculationRequest sessionRequest,
                              RedirectAttributes redirectAttributes) {
         
         try {
-            // requestがnullの場合は新しいインスタンスを作成
-            if (request == null) {
-                request = new CalculationRequest();
-            }
+            // セッションから状態を取得、なければ新しいインスタンスを作成
+            CalculationRequest request = sessionRequest != null ? sessionRequest : new CalculationRequest();
+            
+            // デバッグログを追加
+            System.out.println("Button clicked: " + button);
+            System.out.println("Current display: " + request.getDisplayValue());
+            
             CalculationRequest updatedRequest = handleButtonClick(request, button);
+            
+            // 更新された状態をFlashAttributeに保存
             redirectAttributes.addFlashAttribute("calculationRequest", updatedRequest);
+            redirectAttributes.addFlashAttribute("success", "ボタンがクリックされました: " + button);
+            
+            System.out.println("Updated display: " + updatedRequest.getDisplayValue());
+            
         } catch (Exception e) {
-            if (request == null) {
-                request = new CalculationRequest();
-            }
+            CalculationRequest request = sessionRequest != null ? sessionRequest : new CalculationRequest();
             redirectAttributes.addFlashAttribute("calculationRequest", request);
-            redirectAttributes.addFlashAttribute("error", e.getMessage());
+            redirectAttributes.addFlashAttribute("error", "エラー: " + e.getMessage());
+            System.err.println("Button click error: " + e.getMessage());
         }
 
         return "redirect:/";
+    }
+
+    @PostMapping("/button-ajax")
+    @ResponseBody
+    public ResponseEntity<Map<String, Object>> handleButtonAjax(@RequestParam String button, 
+                                                               @SessionAttribute(value = "calculationRequest", required = false) CalculationRequest sessionRequest,
+                                                               HttpSession session) {
+        Map<String, Object> response = new HashMap<>();
+        
+        try {
+            // セッションから状態を取得、なければ新しいインスタンスを作成
+            CalculationRequest request = sessionRequest != null ? sessionRequest : new CalculationRequest();
+            
+            System.out.println("AJAX Button clicked: " + button);
+            System.out.println("Current display: " + request.getDisplayValue());
+            
+            CalculationRequest updatedRequest = handleButtonClick(request, button);
+            
+            // セッションに状態を保存
+            session.setAttribute("calculationRequest", updatedRequest);
+            
+            response.put("success", true);
+            response.put("displayValue", updatedRequest.getDisplayValue());
+            response.put("message", "ボタンがクリックされました: " + button);
+            
+            System.out.println("Updated display: " + updatedRequest.getDisplayValue());
+            
+            return ResponseEntity.ok(response);
+            
+        } catch (Exception e) {
+            response.put("success", false);
+            response.put("error", e.getMessage());
+            System.err.println("AJAX Button click error: " + e.getMessage());
+            
+            return ResponseEntity.badRequest().body(response);
+        }
     }
 
     private CalculationRequest handleButtonClick(CalculationRequest request, String button) {
@@ -169,6 +221,8 @@ public class CalculatorController {
                     request.setPreviousValue(request.getDisplayValue());
                     request.setCurrentOperation(button);
                     request.setShouldResetDisplay(true);
+                    // 演算子ボタンをクリックした後は、ディスプレイをクリアしない
+                    // 次の数字入力まで現在の値を保持
                 }
                 return request;
                 

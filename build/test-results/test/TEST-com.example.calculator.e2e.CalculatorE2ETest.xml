@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.calculator.e2e.CalculatorE2ETest" tests="16" skipped="2" failures="0" errors="0" timestamp="2025-09-02T02:02:07.989Z" hostname="arigatatsuyanoMacBook-Air.local" time="28.114">
+  <properties/>
+  <testcase name="アプリケーションが正常に起動し、電卓ページが表示される" classname="com.example.calculator.e2e.CalculatorE2ETest" time="2.828"/>
+  <testcase name="数字ボタンが正常に動作する" classname="com.example.calculator.e2e.CalculatorE2ETest" time="2.584"/>
+  <testcase name="基本的な加算が正常に動作する" classname="com.example.calculator.e2e.CalculatorE2ETest" time="1.883"/>
+  <testcase name="基本的な減算が正常に動作する" classname="com.example.calculator.e2e.CalculatorE2ETest" time="2.777"/>
+  <testcase name="基本的な乗算が正常に動作する" classname="com.example.calculator.e2e.CalculatorE2ETest" time="1.555"/>
+  <testcase name="基本的な除算が正常に動作する" classname="com.example.calculator.e2e.CalculatorE2ETest" time="2.032"/>
+  <testcase name="クリア機能が正常に動作する" classname="com.example.calculator.e2e.CalculatorE2ETest" time="1.914"/>
+  <testcase name="符号反転機能が正常に動作する" classname="com.example.calculator.e2e.CalculatorE2ETest" time="1.722"/>
+  <testcase name="パーセント計算が正常に動作する" classname="com.example.calculator.e2e.CalculatorE2ETest" time="1.647"/>
+  <testcase name="平方根計算が正常に動作する" classname="com.example.calculator.e2e.CalculatorE2ETest" time="1.428"/>
+  <testcase name="二乗計算が正常に動作する" classname="com.example.calculator.e2e.CalculatorE2ETest" time="1.189"/>
+  <testcase name="連続計算が正常に動作する" classname="com.example.calculator.e2e.CalculatorE2ETest" time="2.78"/>
+  <testcase name="ゼロ除算エラーが適切に処理される" classname="com.example.calculator.e2e.CalculatorE2ETest" time="1.93"/>
+  <testcase name="負の数の平方根エラーが適切に処理される" classname="com.example.calculator.e2e.CalculatorE2ETest" time="1.822"/>
+  <testcase name="レスポンシブデザインが適用されている" classname="com.example.calculator.e2e.CalculatorE2ETest" time="0.001">
+    <skipped/>
+  </testcase>
+  <testcase name="キーボード入力が正常に動作する" classname="com.example.calculator.e2e.CalculatorE2ETest" time="0.0">
+    <skipped/>
+  </testcase>
+  <system-out><![CDATA[11:02:06.450 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.calculator.e2e.CalculatorE2ETest]: CalculatorE2ETest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+11:02:06.508 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.calculator.CalculatorApplication for test class com.example.calculator.e2e.CalculatorE2ETest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.0)
+
+2025-09-02T11:02:06.745+09:00  INFO 41913 --- [calculator-app-test] [    Test worker] c.e.calculator.e2e.CalculatorE2ETest     : Starting CalculatorE2ETest using Java 21.0.8 with PID 41913 (started by arigatatsuya in /Users/arigatatsuya/Work/git/test-calc-java-subagent-a)
+2025-09-02T11:02:06.746+09:00  INFO 41913 --- [calculator-app-test] [    Test worker] c.e.calculator.e2e.CalculatorE2ETest     : The following 1 profile is active: "test"
+2025-09-02T11:02:07.389+09:00  INFO 41913 --- [calculator-app-test] [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 0 (http)
+2025-09-02T11:02:07.398+09:00  INFO 41913 --- [calculator-app-test] [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-09-02T11:02:07.399+09:00  INFO 41913 --- [calculator-app-test] [    Test worker] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2025-09-02T11:02:07.455+09:00  INFO 41913 --- [calculator-app-test] [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-09-02T11:02:07.456+09:00  INFO 41913 --- [calculator-app-test] [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 698 ms
+2025-09-02T11:02:07.974+09:00  INFO 41913 --- [calculator-app-test] [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 63449 (http) with context path ''
+2025-09-02T11:02:07.981+09:00  INFO 41913 --- [calculator-app-test] [    Test worker] c.e.calculator.e2e.CalculatorE2ETest     : Started CalculatorE2ETest in 1.393 seconds (process running for 2.001)
+2025-09-02T11:02:08.640+09:00  INFO 41913 --- [calculator-app-test] [    Test worker] i.g.bonigarcia.wdm.WebDriverManager      : Using chromedriver 139.0.7258.154 (resolved driver for Chrome 139)
+2025-09-02T11:02:08.655+09:00  INFO 41913 --- [calculator-app-test] [    Test worker] i.g.bonigarcia.wdm.WebDriverManager      : Exporting webdriver.chrome.driver as /Users/arigatatsuya/.cache/selenium/chromedriver/mac-arm64/139.0.7258.154/chromedriver
+2025-09-02T11:02:09.772+09:00  WARN 41913 --- [calculator-app-test] [    Test worker] o.o.selenium.devtools.CdpVersionFinder   : Unable to find CDP implementation matching 139
+2025-09-02T11:02:09.772+09:00  WARN 41913 --- [calculator-app-test] [    Test worker] o.o.selenium.chromium.ChromiumDriver     : Unable to find version of CDP to use for 139.0.7258.155. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.14.1` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+2025-09-02T11:02:09.830+09:00  INFO 41913 --- [calculator-app-test] [o-auto-1-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-09-02T11:02:10.828+09:00  INFO 41913 --- [calculator-app-test] [    Test worker] i.g.bonigarcia.wdm.WebDriverManager      : Using chromedriver 139.0.7258.154 (resolved driver for Chrome 139)
+2025-09-02T11:02:10.831+09:00  INFO 41913 --- [calculator-app-test] [    Test worker] i.g.bonigarcia.wdm.WebDriverManager      : Exporting webdriver.chrome.driver as /Users/arigatatsuya/.cache/selenium/chromedriver/mac-arm64/139.0.7258.154/chromedriver
+2025-09-02T11:02:11.629+09:00  WARN 41913 --- [calculator-app-test] [    Test worker] o.o.selenium.devtools.CdpVersionFinder   : Unable to find CDP implementation matching 139
+2025-09-02T11:02:11.636+09:00  WARN 41913 --- [calculator-app-test] [    Test worker] o.o.selenium.chromium.ChromiumDriver     : Unable to find version of CDP to use for 139.0.7258.155. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.14.1` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+Button clicked: 1
+Current display: 0
+Updated display: 1
+Button clicked: 2
+Current display: 1
+Updated display: 12
+Button clicked: 3
+Current display: 12
+Updated display: 123
+2025-09-02T11:02:13.409+09:00  INFO 41913 --- [calculator-app-test] [    Test worker] i.g.bonigarcia.wdm.WebDriverManager      : Using chromedriver 139.0.7258.154 (resolved driver for Chrome 139)
+2025-09-02T11:02:13.410+09:00  INFO 41913 --- [calculator-app-test] [    Test worker] i.g.bonigarcia.wdm.WebDriverManager      : Exporting webdriver.chrome.driver as /Users/arigatatsuya/.cache/selenium/chromedriver/mac-arm64/139.0.7258.154/chromedriver
+2025-09-02T11:02:13.994+09:00  WARN 41913 --- [calculator-app-test] [    Test worker] o.o.selenium.devtools.CdpVersionFinder   : Unable to find CDP implementation matching 139
+2025-09-02T11:02:13.994+09:00  WARN 41913 --- [calculator-app-test] [    Test worker] o.o.selenium.chromium.ChromiumDriver     : Unable to find version of CDP to use for 139.0.7258.155. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.14.1` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+Button clicked: 2
+Current display: 0
+Updated display: 2
+Button clicked: +
+Current display: 2
+Updated display: 2
+Button clicked: 3
+Current display: 2
+Updated display: 3
+Button clicked: =
+Current display: 3
+Updated display: 5
+2025-09-02T11:02:15.294+09:00  INFO 41913 --- [calculator-app-test] [    Test worker] i.g.bonigarcia.wdm.WebDriverManager      : Using chromedriver 139.0.7258.154 (resolved driver for Chrome 139)
+2025-09-02T11:02:15.296+09:00  INFO 41913 --- [calculator-app-test] [    Test worker] i.g.bonigarcia.wdm.WebDriverManager      : Exporting webdriver.chrome.driver as /Users/arigatatsuya/.cache/selenium/chromedriver/mac-arm64/139.0.7258.154/chromedriver
+2025-09-02T11:02:15.959+09:00  WARN 41913 --- [calculator-app-test] [    Test worker] o.o.selenium.devtools.CdpVersionFinder   : Unable to find CDP implementation matching 139
+2025-09-02T11:02:15.959+09:00  WARN 41913 --- [calculator-app-test] [    Test worker] o.o.selenium.chromium.ChromiumDriver     : Unable to find version of CDP to use for 139.0.7258.155. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.14.1` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+Button clicked: 1
+Current display: 0
+Updated display: 1
+Button clicked: 0
+Current display: 1
+Updated display: 10
+Button clicked: -
+Current display: 10
+Updated display: 10
+Button clicked: 3
+Current display: 10
+Updated display: 3
+Button clicked: =
+Current display: 3
+Updated display: 7
+2025-09-02T11:02:18.072+09:00  INFO 41913 --- [calculator-app-test] [    Test worker] i.g.bonigarcia.wdm.WebDriverManager      : Using chromedriver 139.0.7258.154 (resolved driver for Chrome 139)
+2025-09-02T11:02:18.074+09:00  INFO 41913 --- [calculator-app-test] [    Test worker] i.g.bonigarcia.wdm.WebDriverManager      : Exporting webdriver.chrome.driver as /Users/arigatatsuya/.cache/selenium/chromedriver/mac-arm64/139.0.7258.154/chromedriver
+2025-09-02T11:02:18.467+09:00  WARN 41913 --- [calculator-app-test] [    Test worker] o.o.selenium.devtools.CdpVersionFinder   : Unable to find CDP implementation matching 139
+2025-09-02T11:02:18.467+09:00  WARN 41913 --- [calculator-app-test] [    Test worker] o.o.selenium.chromium.ChromiumDriver     : Unable to find version of CDP to use for 139.0.7258.155. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.14.1` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+Button clicked: 4
+Current display: 0
+Updated display: 4
+Button clicked: *
+Current display: 4
+Updated display: 4
+Button clicked: 5
+Current display: 4
+Updated display: 5
+Button clicked: =
+Current display: 5
+Updated display: 20
+2025-09-02T11:02:19.626+09:00  INFO 41913 --- [calculator-app-test] [    Test worker] i.g.bonigarcia.wdm.WebDriverManager      : Using chromedriver 139.0.7258.154 (resolved driver for Chrome 139)
+2025-09-02T11:02:19.627+09:00  INFO 41913 --- [calculator-app-test] [    Test worker] i.g.bonigarcia.wdm.WebDriverManager      : Exporting webdriver.chrome.driver as /Users/arigatatsuya/.cache/selenium/chromedriver/mac-arm64/139.0.7258.154/chromedriver
+2025-09-02T11:02:19.995+09:00  WARN 41913 --- [calculator-app-test] [    Test worker] o.o.selenium.devtools.CdpVersionFinder   : Unable to find CDP implementation matching 139
+2025-09-02T11:02:19.995+09:00  WARN 41913 --- [calculator-app-test] [    Test worker] o.o.selenium.chromium.ChromiumDriver     : Unable to find version of CDP to use for 139.0.7258.155. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.14.1` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+Button clicked: 1
+Current display: 0
+Updated display: 1
+Button clicked: 5
+Current display: 1
+Updated display: 15
+Button clicked: /
+Current display: 15
+Updated display: 15
+Button clicked: 3
+Current display: 15
+Updated display: 3
+Button clicked: =
+Current display: 3
+Updated display: 5.0000000000
+2025-09-02T11:02:21.663+09:00  INFO 41913 --- [calculator-app-test] [    Test worker] i.g.bonigarcia.wdm.WebDriverManager      : Using chromedriver 139.0.7258.154 (resolved driver for Chrome 139)
+2025-09-02T11:02:21.668+09:00  INFO 41913 --- [calculator-app-test] [    Test worker] i.g.bonigarcia.wdm.WebDriverManager      : Exporting webdriver.chrome.driver as /Users/arigatatsuya/.cache/selenium/chromedriver/mac-arm64/139.0.7258.154/chromedriver
+2025-09-02T11:02:22.241+09:00  WARN 41913 --- [calculator-app-test] [    Test worker] o.o.selenium.devtools.CdpVersionFinder   : Unable to find CDP implementation matching 139
+2025-09-02T11:02:22.241+09:00  WARN 41913 --- [calculator-app-test] [    Test worker] o.o.selenium.chromium.ChromiumDriver     : Unable to find version of CDP to use for 139.0.7258.155. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.14.1` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+Button clicked: 1
+Current display: 0
+Updated display: 1
+Button clicked: 2
+Current display: 1
+Updated display: 12
+Button clicked: 3
+Current display: 12
+Updated display: 123
+Button clicked: C
+Current display: 123
+Updated display: 0
+2025-09-02T11:02:23.579+09:00  INFO 41913 --- [calculator-app-test] [    Test worker] i.g.bonigarcia.wdm.WebDriverManager      : Using chromedriver 139.0.7258.154 (resolved driver for Chrome 139)
+2025-09-02T11:02:23.583+09:00  INFO 41913 --- [calculator-app-test] [    Test worker] i.g.bonigarcia.wdm.WebDriverManager      : Exporting webdriver.chrome.driver as /Users/arigatatsuya/.cache/selenium/chromedriver/mac-arm64/139.0.7258.154/chromedriver
+2025-09-02T11:02:24.093+09:00  WARN 41913 --- [calculator-app-test] [    Test worker] o.o.selenium.devtools.CdpVersionFinder   : Unable to find CDP implementation matching 139
+2025-09-02T11:02:24.093+09:00  WARN 41913 --- [calculator-app-test] [    Test worker] o.o.selenium.chromium.ChromiumDriver     : Unable to find version of CDP to use for 139.0.7258.155. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.14.1` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+Button clicked: 5
+Current display: 0
+Updated display: 5
+Button clicked: ±
+Current display: 5
+Updated display: -5
+Button clicked: ±
+Current display: -5
+Updated display: 5
+2025-09-02T11:02:25.303+09:00  INFO 41913 --- [calculator-app-test] [    Test worker] i.g.bonigarcia.wdm.WebDriverManager      : Using chromedriver 139.0.7258.154 (resolved driver for Chrome 139)
+2025-09-02T11:02:25.304+09:00  INFO 41913 --- [calculator-app-test] [    Test worker] i.g.bonigarcia.wdm.WebDriverManager      : Exporting webdriver.chrome.driver as /Users/arigatatsuya/.cache/selenium/chromedriver/mac-arm64/139.0.7258.154/chromedriver
+2025-09-02T11:02:25.862+09:00  WARN 41913 --- [calculator-app-test] [    Test worker] o.o.selenium.devtools.CdpVersionFinder   : Unable to find CDP implementation matching 139
+2025-09-02T11:02:25.862+09:00  WARN 41913 --- [calculator-app-test] [    Test worker] o.o.selenium.chromium.ChromiumDriver     : Unable to find version of CDP to use for 139.0.7258.155. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.14.1` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+Button clicked: 5
+Current display: 0
+Updated display: 5
+Button clicked: 0
+Current display: 5
+Updated display: 50
+Button clicked: %
+Current display: 50
+Updated display: 0.5000000000
+2025-09-02T11:02:26.951+09:00  INFO 41913 --- [calculator-app-test] [    Test worker] i.g.bonigarcia.wdm.WebDriverManager      : Using chromedriver 139.0.7258.154 (resolved driver for Chrome 139)
+2025-09-02T11:02:26.952+09:00  INFO 41913 --- [calculator-app-test] [    Test worker] i.g.bonigarcia.wdm.WebDriverManager      : Exporting webdriver.chrome.driver as /Users/arigatatsuya/.cache/selenium/chromedriver/mac-arm64/139.0.7258.154/chromedriver
+2025-09-02T11:02:27.397+09:00  WARN 41913 --- [calculator-app-test] [    Test worker] o.o.selenium.devtools.CdpVersionFinder   : Unable to find CDP implementation matching 139
+2025-09-02T11:02:27.398+09:00  WARN 41913 --- [calculator-app-test] [    Test worker] o.o.selenium.chromium.ChromiumDriver     : Unable to find version of CDP to use for 139.0.7258.155. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.14.1` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+Button clicked: 1
+Current display: 0
+Updated display: 1
+Button clicked: 6
+Current display: 1
+Updated display: 16
+Button clicked: √
+Current display: 16
+Updated display: 4
+2025-09-02T11:02:28.377+09:00  INFO 41913 --- [calculator-app-test] [    Test worker] i.g.bonigarcia.wdm.WebDriverManager      : Using chromedriver 139.0.7258.154 (resolved driver for Chrome 139)
+2025-09-02T11:02:28.378+09:00  INFO 41913 --- [calculator-app-test] [    Test worker] i.g.bonigarcia.wdm.WebDriverManager      : Exporting webdriver.chrome.driver as /Users/arigatatsuya/.cache/selenium/chromedriver/mac-arm64/139.0.7258.154/chromedriver
+2025-09-02T11:02:28.832+09:00  WARN 41913 --- [calculator-app-test] [    Test worker] o.o.selenium.devtools.CdpVersionFinder   : Unable to find CDP implementation matching 139
+2025-09-02T11:02:28.832+09:00  WARN 41913 --- [calculator-app-test] [    Test worker] o.o.selenium.chromium.ChromiumDriver     : Unable to find version of CDP to use for 139.0.7258.155. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.14.1` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+Button clicked: 3
+Current display: 0
+Updated display: 3
+Button clicked: x²
+Current display: 3
+Updated display: 9
+2025-09-02T11:02:29.567+09:00  INFO 41913 --- [calculator-app-test] [    Test worker] i.g.bonigarcia.wdm.WebDriverManager      : Using chromedriver 139.0.7258.154 (resolved driver for Chrome 139)
+2025-09-02T11:02:29.568+09:00  INFO 41913 --- [calculator-app-test] [    Test worker] i.g.bonigarcia.wdm.WebDriverManager      : Exporting webdriver.chrome.driver as /Users/arigatatsuya/.cache/selenium/chromedriver/mac-arm64/139.0.7258.154/chromedriver
+2025-09-02T11:02:29.969+09:00  WARN 41913 --- [calculator-app-test] [    Test worker] o.o.selenium.devtools.CdpVersionFinder   : Unable to find CDP implementation matching 139
+2025-09-02T11:02:29.969+09:00  WARN 41913 --- [calculator-app-test] [    Test worker] o.o.selenium.chromium.ChromiumDriver     : Unable to find version of CDP to use for 139.0.7258.155. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.14.1` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+Button clicked: 2
+Current display: 0
+Updated display: 2
+Button clicked: +
+Current display: 2
+Updated display: 2
+Button clicked: 3
+Current display: 2
+Updated display: 3
+Button clicked: +
+Current display: 3
+Updated display: 3
+Button clicked: 4
+Current display: 3
+Updated display: 4
+Button clicked: =
+Current display: 4
+Updated display: 9
+2025-09-02T11:02:32.351+09:00  INFO 41913 --- [calculator-app-test] [    Test worker] i.g.bonigarcia.wdm.WebDriverManager      : Using chromedriver 139.0.7258.154 (resolved driver for Chrome 139)
+2025-09-02T11:02:32.352+09:00  INFO 41913 --- [calculator-app-test] [    Test worker] i.g.bonigarcia.wdm.WebDriverManager      : Exporting webdriver.chrome.driver as /Users/arigatatsuya/.cache/selenium/chromedriver/mac-arm64/139.0.7258.154/chromedriver
+2025-09-02T11:02:32.873+09:00  WARN 41913 --- [calculator-app-test] [    Test worker] o.o.selenium.devtools.CdpVersionFinder   : Unable to find CDP implementation matching 139
+2025-09-02T11:02:32.873+09:00  WARN 41913 --- [calculator-app-test] [    Test worker] o.o.selenium.chromium.ChromiumDriver     : Unable to find version of CDP to use for 139.0.7258.155. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.14.1` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+Button clicked: 5
+Current display: 0
+Updated display: 5
+Button clicked: /
+Current display: 5
+Updated display: 5
+Button clicked: 0
+Current display: 5
+Updated display: 0
+Button clicked: =
+Current display: 0
+2025-09-02T11:02:34.282+09:00  INFO 41913 --- [calculator-app-test] [    Test worker] i.g.bonigarcia.wdm.WebDriverManager      : Using chromedriver 139.0.7258.154 (resolved driver for Chrome 139)
+2025-09-02T11:02:34.286+09:00  INFO 41913 --- [calculator-app-test] [    Test worker] i.g.bonigarcia.wdm.WebDriverManager      : Exporting webdriver.chrome.driver as /Users/arigatatsuya/.cache/selenium/chromedriver/mac-arm64/139.0.7258.154/chromedriver
+2025-09-02T11:02:34.835+09:00  WARN 41913 --- [calculator-app-test] [    Test worker] o.o.selenium.devtools.CdpVersionFinder   : Unable to find CDP implementation matching 139
+2025-09-02T11:02:34.835+09:00  WARN 41913 --- [calculator-app-test] [    Test worker] o.o.selenium.chromium.ChromiumDriver     : Unable to find version of CDP to use for 139.0.7258.155. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.14.1` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+Button clicked: 1
+Current display: 0
+Updated display: 1
+Button clicked: ±
+Current display: 1
+Updated display: -1
+Button clicked: √
+Current display: -1
+]]></system-out>
+  <system-err><![CDATA[WARNING: A Java agent has been loaded dynamically (/Users/arigatatsuya/.gradle/caches/modules-2/files-2.1/net.bytebuddy/byte-buddy-agent/1.14.10/90ed94ac044ea8953b224304c762316e91fd6b31/byte-buddy-agent-1.14.10.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+Button click error: 計算エラー: ゼロで割ることはできません
+Button click error: 平方根計算エラー: 負の数の平方根は計算できません
+]]></system-err>
+</testsuite>
