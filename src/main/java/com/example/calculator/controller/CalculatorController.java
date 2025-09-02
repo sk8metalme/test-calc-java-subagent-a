@@ -63,9 +63,16 @@ public class CalculatorController {
                              RedirectAttributes redirectAttributes) {
         
         try {
+            // requestがnullの場合は新しいインスタンスを作成
+            if (request == null) {
+                request = new CalculationRequest();
+            }
             CalculationRequest updatedRequest = handleButtonClick(request, button);
             redirectAttributes.addFlashAttribute("calculationRequest", updatedRequest);
         } catch (Exception e) {
+            if (request == null) {
+                request = new CalculationRequest();
+            }
             redirectAttributes.addFlashAttribute("calculationRequest", request);
             redirectAttributes.addFlashAttribute("error", e.getMessage());
         }

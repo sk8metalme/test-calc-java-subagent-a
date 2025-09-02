@@ -3,6 +3,7 @@ function handleButton(button) {
     const form = document.createElement('form');
     form.method = 'POST';
     form.action = '/button';
+    form.style.display = 'none';
     
     const input = document.createElement('input');
     input.type = 'hidden';
@@ -11,7 +12,12 @@ function handleButton(button) {
     
     form.appendChild(input);
     document.body.appendChild(form);
+    
+    // フォーム送信
     form.submit();
+    
+    // フォームを削除
+    document.body.removeChild(form);
 }
 
 // キーボードイベントの処理
