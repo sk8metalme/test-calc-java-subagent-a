@@ -7,40 +7,12 @@ function handleButton(button) {
         console.log('Current display before submit:', currentDisplay.textContent);
     }
     
-    // AJAXを使用してボタンクリックを送信
-    const formData = new FormData();
-    formData.append('button', button);
-    
-    fetch('/button-ajax', {
-        method: 'POST',
-        body: formData
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            // 成功時はディスプレイを更新
-            const display = document.querySelector('.display-value');
-            if (display) {
-                display.textContent = data.displayValue;
-                console.log('Display updated to:', data.displayValue);
-            }
-            
-            // 成功メッセージを表示
-            showMessage(data.message, 'success');
-        } else {
-            console.error('Button click failed:', data.error);
-            showMessage('エラー: ' + data.error, 'error');
-        }
-    })
-    .catch(error => {
-        console.error('Button click error:', error);
-        // フォールバック: 従来のフォーム送信
-        submitForm(button);
-    });
+    // 従来のフォーム送信方式を使用（より安定）
+    submitForm(button);
 }
 
 function submitForm(button) {
-    // フォームを作成してボタンクリックを送信（フォールバック用）
+    // フォームを作成してボタンクリックを送信
     const form = document.createElement('form');
     form.method = 'POST';
     form.action = '/button';
@@ -53,6 +25,8 @@ function submitForm(button) {
     
     form.appendChild(input);
     document.body.appendChild(form);
+    
+    // フォーム送信
     form.submit();
 }
 

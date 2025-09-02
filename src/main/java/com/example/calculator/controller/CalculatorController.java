@@ -11,12 +11,16 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
 import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
+import jakarta.servlet.http.HttpSession;
 
 @Controller
+@SessionAttributes("calculationRequest")
 public class CalculatorController {
 
     @Autowired
@@ -63,14 +67,12 @@ public class CalculatorController {
 
     @PostMapping("/button")
     public String handleButton(@RequestParam String button, 
-                             @ModelAttribute CalculationRequest request,
+                             @SessionAttribute(value = "calculationRequest", required = false) CalculationRequest sessionRequest,
                              RedirectAttributes redirectAttributes) {
         
         try {
-            // requestがnullの場合は新しいインスタンスを作成
-            if (request == null) {
-                request = new CalculationRequest();
-            }
+            // セッションから状態を取得、なければ新しいインスタンスを作成
+            CalculationRequest request = sessionRequest != null ? sessionRequest : new CalculationRequest();
             
             // デバッグログを追加
             System.out.println("Button clicked: " + button);
@@ -85,9 +87,7 @@ public class CalculatorController {
             System.out.println("Updated display: " + updatedRequest.getDisplayValue());
             
         } catch (Exception e) {
-            if (request == null) {
-                request = new CalculationRequest();
-            }
+            CalculationRequest request = sessionRequest != null ? sessionRequest : new CalculationRequest();
             redirectAttributes.addFlashAttribute("calculationRequest", request);
             redirectAttributes.addFlashAttribute("error", "エラー: " + e.getMessage());
             System.err.println("Button click error: " + e.getMessage());
@@ -99,19 +99,21 @@ public class CalculatorController {
     @PostMapping("/button-ajax")
     @ResponseBody
     public ResponseEntity<Map<String, Object>> handleButtonAjax(@RequestParam String button, 
-                                                               @ModelAttribute CalculationRequest request) {
+                                                               @SessionAttribute(value = "calculationRequest", required = false) CalculationRequest sessionRequest,
+                                                               HttpSession session) {
         Map<String, Object> response = new HashMap<>();
         
         try {
-            // requestがnullの場合は新しいインスタンスを作成
-            if (request == null) {
-                request = new CalculationRequest();
-            }
+            // セッションから状態を取得、なければ新しいインスタンスを作成
+            CalculationRequest request = sessionRequest != null ? sessionRequest : new CalculationRequest();
             
             System.out.println("AJAX Button clicked: " + button);
             System.out.println("Current display: " + request.getDisplayValue());
             
             CalculationRequest updatedRequest = handleButtonClick(request, button);
+            
+            // セッションに状態を保存
+            session.setAttribute("calculationRequest", updatedRequest);
             
             response.put("success", true);
             response.put("displayValue", updatedRequest.getDisplayValue());
